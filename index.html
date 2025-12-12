@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Untitled</title>
+    <link rel="stylesheet" href="./style.css">
+
+  </head>
+    
+  <body>
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dithering Tool</title>
+</head>
+<body>
+  <div id="root" class="dither-tool">
+    <div class="main">
+      <div class="setting">
+        <div class="setting_title">DITHERING TOOL</div>
+
+        <div class="settings_p">
+          <div class="settings_dscr">
+            <div class="settings_name">Choose your image</div>
+          </div>
+          <input type="file" id="fileInput" accept="image/*" />
+        </div>
+
+        <div class="settings_p">
+          <div class="settings_dscr">
+            <div class="settings_name">Dithering type</div>
+          </div>
+          <select id="ditherType">
+            <optgroup label="Diffusion Dithering">
+              <option>Floyd Steinberg</option>
+              <option>Jarvis, Judice, Nink</option>
+              <option>Stucki</option>
+              <option>Atkinson</option>
+              <option>Burkes</option>
+              <option>One-dimensional horizontal</option>
+              <option>One-dimensional vertical</option>
+              <option>Two-dimensional</option>
+              <option>DTH glitch 1</option>
+              <option>DTH glitch 2</option>
+              <option>DTH glitch 3</option>
+            </optgroup>
+            <optgroup label="Ordered Dithering">
+              <option>2X2 map</option>
+              <option>4X4 map</option>
+              <option>8X8 map</option>
+            </optgroup>
+          </select>
+        </div>
+
+        <div class="settings_p">
+          <button type="button" id="colorButton">monochrome</button>
+        </div>
+
+        <div class="settings_p">
+          <div class="settings_dscr">
+            <div class="settings_name">pixel size</div>
+            <div class="settings_val" id="pixelSizeVal">8 px</div>
+          </div>
+          <input type="range" id="sizeSlider" min="50" max="1000" value="525" />
+        </div>
+
+        <div class="settings_p">
+          <div class="settings_dscr">
+            <div class="settings_name">zoom</div>
+            <div class="settings_val" id="zoomDisplay">3.0</div>
+          </div>
+          <input type="range" id="zoomSlider" min="1" max="60" value="50" />
+        </div>
+
+        <div class="settings_p">
+          <div class="settings_dscr">
+            <div class="settings_name">brightness</div>
+            <div class="settings_val" id="brightnessVal">100</div>
+          </div>
+          <input type="range" id="brightnessSlider" min="0" max="400" value="100" />
+        </div>
+
+        <div class="settings_p">
+          <div class="settings_dscr">
+            <div class="settings_name">contrast</div>
+            <div class="settings_val" id="contrastVal">100</div>
+          </div>
+          <input type="range" id="contrastSlider" min="0" max="400" value="100" />
+        </div>
+
+        <div class="settings_p">
+          <div class="settings_dscr">
+            <div class="settings_name">bit depth</div>
+            <div class="settings_val" id="bitDepthVal">1</div>
+          </div>
+          <input type="range" id="bitDepthSlider" min="1" max="32" value="1" />
+        </div>
+
+        <div class="settings_p export-actions">
+          <div class="settings_dscr">
+            <div class="settings_name">Export</div>
+          </div>
+          <div class="export-buttons">
+            <button type="button" id="exportPng">PNG</button>
+            <button type="button" id="exportSvg">SVG</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="canvas-wrapper">
+          <div class="canvas-inner" id="canvasInner">
+            <canvas id="canvas"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+    <script  src="./script.js"></script>
+
+  </body>
+  
+</html>

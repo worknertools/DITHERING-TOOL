@@ -1,0 +1,35 @@
+* { box-sizing: border-box; }
+html, body { margin: 0; min-height: 100%; background: #1a1e26; font-family: "Inter", "Segoe UI", "Helvetica Neue", Arial, sans-serif; color: rgba(43, 56, 72, 0.82); }
+
+.dither-tool { --c1: #2c3e50; --c2: #34495e; --c3: #ecf0f1; --c4: #ebe9e6; --primary: #3498db; }
+.dither-tool .main { display: flex; min-height: 100vh; }
+.dither-tool .setting { width: clamp(240px, 25%, 320px); background-color: var(--c4); padding: 18px 16px; overflow-y: auto; display: flex; flex-direction: column; gap: 14px; font-size: 13px; line-height: 1.55; color: rgba(43, 56, 72, 0.82); font-weight: 300; }
+.dither-tool .content { flex: 1; background-color: #000; display: flex; justify-content: center; align-items: center; padding: clamp(16px, 8vw, 48px); overflow: hidden; }
+.dither-tool .setting_title { font-size: 16px; font-weight: 650; letter-spacing: 1.6px; color: rgba(22, 28, 38, 0.88); margin-bottom: 14px; text-align: center; text-transform: uppercase; }
+.dither-tool .settings_p { display: flex; flex-direction: column; gap: 4px; padding-bottom: 2px; }
+.dither-tool .settings_dscr { display: flex; justify-content: space-between; align-items: center; font-size: 11.8px; letter-spacing: 0.3px; color: rgba(30, 38, 51, 0.68); font-weight: 300; }
+.dither-tool .settings_name { font-weight: 300; letter-spacing: 0.32px; color: rgba(20, 24, 32, 0.72); }
+.dither-tool .settings_val { font-size: 11.4px; color: rgba(32, 42, 55, 0.46); letter-spacing: 0.28px; min-width: 32px; text-align: right; font-weight: 300; }
+.dither-tool input[type="file"], .dither-tool input[type="number"], .dither-tool input[type="range"], .dither-tool select { width: 100%; padding: 8px 10px; margin-top: 2.5px; border: 1px solid rgba(52, 73, 94, 0.24); border-radius: 5px; font-size: 12.6px; letter-spacing: 0.22px; color: rgba(40, 46, 55, 0.78); background-color: rgba(255, 255, 255, 0.82); transition: background-color 0.2s ease, border-color 0.2s ease; font-weight: 300; }
+.dither-tool input[type="range"] { appearance: none; -webkit-appearance: none; background: transparent; border: none; padding: 6px 0; cursor: pointer; height: 1px; width: 100%; will-change: auto; touch-action: manipulation; -webkit-user-select: none; user-select: none; }
+.dither-tool input[type="range"]::-webkit-slider-runnable-track { height: 1px; background: #d0d0d0; border: none; border-radius: 0; }
+.dither-tool input[type="range"]::-webkit-slider-thumb { appearance: none; -webkit-appearance: none; width: 12px; height: 12px; border-radius: 50%; background: var(--primary); margin-top: -5.5px; border: none; cursor: pointer; transition: none; will-change: transform; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); }
+.dither-tool input[type="range"]::-webkit-slider-thumb:hover { transform: scale(1.2); }
+.dither-tool input[type="range"]::-webkit-slider-thumb:active { transform: scale(1.1); box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); }
+.dither-tool input[type="range"]::-moz-range-track { height: 1px; background: #d0d0d0; border: none; border-radius: 0; }
+.dither-tool input[type="range"]::-moz-range-thumb { width: 12px; height: 12px; border-radius: 50%; background: var(--primary); border: none; cursor: pointer; transition: none; margin-top: -5.5px; will-change: transform; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); }
+.dither-tool input[type="range"]::-moz-range-thumb:hover { transform: scale(1.2); }
+.dither-tool input[type="range"]::-moz-range-thumb:active { transform: scale(1.1); box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); }
+.dither-tool input[type="range"]::-moz-range-progress { background: var(--primary); border: none; border-radius: 0; height: 1px; }
+.dither-tool button { padding: 9px 14px; background-color: var(--primary); color: white; border: none; border-radius: 5px; font-weight: 300; cursor: pointer; transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease; font-size: 13px; letter-spacing: 0.2px; box-shadow: 0 6px 12px rgba(52, 152, 219, 0.22); }
+.dither-tool button:hover { background-color: #2f8ad1; transform: translateY(-1px); box-shadow: 0 10px 18px rgba(52, 152, 219, 0.25); }
+.dither-tool button:active { transform: translateY(0); box-shadow: 0 6px 12px rgba(52, 152, 219, 0.22); }
+.dither-tool button:disabled { opacity: 0.5; cursor: not-allowed; }
+.dither-tool button.active { background-color: var(--c1); }
+.dither-tool .export-buttons { display: flex; flex-direction: row; gap: 9px; margin-top: 6px; }
+.dither-tool .export-buttons button { flex: 1 1 0; }
+.dither-tool .export-actions { margin-top: 10px; }
+.dither-tool .canvas-wrapper { width: min(90vw, 720px); aspect-ratio: 1 / 1; background-color: #ffffff; box-shadow: 0 22px 40px rgba(0, 0, 0, 0.5); display: flex; justify-content: center; align-items: center; overflow: hidden; will-change: transform; }
+.dither-tool .canvas-inner { width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; transform: translateZ(0) scale3d(1, 1, 1); will-change: transform; backface-visibility: hidden; -webkit-font-smoothing: antialiased; perspective: 1000px; }
+.dither-tool canvas { width: 100%; height: 100%; image-rendering: pixelated; image-rendering: crisp-edges; background-color: #ffffff; display: block; will-change: auto; }
+@media (max-width: 768px) { .dither-tool .main { flex-direction: column; } .dither-tool .setting { width: 100%; height: auto; font-size: 12.5px; } .dither-tool .content { width: 100%; padding: 24px; } .dither-tool .canvas-wrapper { width: 100%; } }
